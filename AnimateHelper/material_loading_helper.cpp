@@ -53,13 +53,13 @@ MaterialLoadingHelper::MaterialLoadingHelper(long min_len,
     m_tail_offset = mf_integral_speed(H);
 }
 
-long MaterialLoadingHelper::getPeriod()
+long MaterialLoadingHelper::getPeriod() const
 {
     // todo
     return 0;
 }
 
-void MaterialLoadingHelper::paint(QPainter& painter, QRect const &rect, long const elasped)
+void MaterialLoadingHelper::paint(QPainter& painter, QRect const &rect, long const elasped) const
 {
     painter.save();
 

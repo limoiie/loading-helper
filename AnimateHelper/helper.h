@@ -34,7 +34,7 @@ public:
      * @return The real period you may need in case variable elasped
      * was overflowed.
      */
-    virtual long getPeriod() = 0;
+    virtual long getPeriod() const = 0;
 
     /**
      * @brief paint Paint the loading animation frame on the given %rect
@@ -47,7 +47,7 @@ public:
      * @param rect Area to be paint on
      * @param elasped Time elasped.
      */
-    virtual void paint(QPainter& painter, QRect const& rect, long const elasped) = 0;
+    virtual void paint(QPainter& painter, QRect const& rect, long const elasped) const = 0;
 
     virtual ~Helper() {}
 

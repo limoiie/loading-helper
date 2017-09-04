@@ -38,8 +38,8 @@ public:
                           long speed,
                           std::vector<QColor> m_color_list);
 
-    long getPeriod() override;
-    void paint(QPainter& painter, QRect const& event, long const elasped) override;
+    long getPeriod() const override;
+    void paint(QPainter& painter, QRect const& event, long const elasped) const override;
 
 private:
     long m_period;
