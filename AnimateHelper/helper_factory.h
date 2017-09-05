@@ -2,10 +2,11 @@
 #define ANIMATEHELPER_HELPER_factory_H
 
 #include "helper.h"
-#include "helper_kind.h"
 
 #include <QRect>
 #include <map>
+
+enum HelperKind;
 
 class HelperFactory {
 public:
