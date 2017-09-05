@@ -1,5 +1,5 @@
 #include "widget.h"
-#include "AnimateHelper/material_loading_helper.h"
+ #include "AnimateHelper/material_loading_helper.h"
 
 #include <QApplication>
 #include <QDesktopWidget>
@@ -7,7 +7,14 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MaterialLoadingHelper *p_helper = new MaterialLoadingHelper(45*16, 225*16, 2000, 500, 2, {});
+    Helper *p_helper = (new MaterialLoadingHelper::MaterialLoadingBuilder())
+            ->setClockwise(true)
+            ->setMaxLen(225*16)
+            ->setMinLen(45*16)
+            ->setPeriod(1200, 100)
+            ->setSpeed(2)
+            ->setColorList({})
+            ->build();
 
     Widget w(p_helper);
     w.show();

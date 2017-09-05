@@ -14,12 +14,12 @@ public:
         MaterialLoadingBuilder();
         Helper *build() const override;
 
-        inline void setClockwise(bool clockwise);
-        inline void setMinLen(long val);
-        inline void setMaxLen(long val);
-        inline void setPeriod(long shift_period, long const_period);
-        inline void setSpeed(long val);
-        inline void setColorList(std::vector<QColor> val);
+        MaterialLoadingBuilder* setClockwise(bool clockwise);
+        MaterialLoadingBuilder* setMinLen(long val);
+        MaterialLoadingBuilder* setMaxLen(long val);
+        MaterialLoadingBuilder* setPeriod(long shift_period, long const_period);
+        MaterialLoadingBuilder* setSpeed(long val);
+        MaterialLoadingBuilder* setColorList(std::vector<QColor> val);
 
     private:
         bool m_clockwise;
@@ -31,13 +31,6 @@ public:
         std::vector<QColor> m_color_list;
     };
 
-    MaterialLoadingHelper(long min_len,
-                          long max_len,
-                          long shift_period,
-                          long const_period,
-                          long speed,
-                          std::vector<QColor> m_color_list);
-
     long getPeriod() const override;
     void paint(QPainter& painter, QRect const& event, long const elasped) const override;
 
@@ -48,6 +41,13 @@ private:
     long m_tail_offset;
     std::vector<QColor> m_color_list;
     std::function<double(double)> mf_integral_speed;
+
+    MaterialLoadingHelper(long min_len,
+                          long max_len,
+                          long shift_period,
+                          long const_period,
+                          long speed,
+                          std::vector<QColor> m_color_list);
 };
 
 // todo: register %MaterialLoadingHelper to %HelperFactory

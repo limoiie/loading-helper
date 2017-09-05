@@ -1,9 +1,10 @@
 #include "material_loading_helper.h"
 
-#include <cmath>
 #include <QPainter>
 #include <QPaintEvent>
 #include <QEvent>
+#include <QDebug>
+#include <cmath>
 
 MaterialLoadingHelper::MaterialLoadingHelper(long min_len,
                                              long max_len,
@@ -98,39 +99,51 @@ Helper *MaterialLoadingHelper::MaterialLoadingBuilder::build() const
                                      m_color_list);
 }
 
-void MaterialLoadingHelper::MaterialLoadingBuilder::setClockwise(bool clockwise)
+MaterialLoadingHelper::MaterialLoadingBuilder*
+MaterialLoadingHelper::MaterialLoadingBuilder::setClockwise(bool clockwise)
 {
     this->m_clockwise = clockwise;
+    return this;
 }
 
-void MaterialLoadingHelper::MaterialLoadingBuilder::setMinLen(long val)
+MaterialLoadingHelper::MaterialLoadingBuilder*
+MaterialLoadingHelper::MaterialLoadingBuilder::setMinLen(long val)
 {
     // todo
     this->m_min_len = val;
+    return this;
 }
 
-void MaterialLoadingHelper::MaterialLoadingBuilder::setMaxLen(long val)
+MaterialLoadingHelper::MaterialLoadingBuilder*
+MaterialLoadingHelper::MaterialLoadingBuilder::setMaxLen(long val)
 {
     // todo
     this->m_max_len = val;
+    return this;
 }
 
-void MaterialLoadingHelper::MaterialLoadingBuilder::setPeriod(long shift_period,
-                                                              long const_period = -1)
+MaterialLoadingHelper::MaterialLoadingBuilder*
+MaterialLoadingHelper::MaterialLoadingBuilder::setPeriod(long shift_period,
+                                                         long const_period = -1)
 {
     // todo
     this->m_shift_period = shift_period;
     this->m_const_period = const_period == - 1 ? shift_period : const_period;
+    return this;
 }
 
-void MaterialLoadingHelper::MaterialLoadingBuilder::setSpeed(long val)
+MaterialLoadingHelper::MaterialLoadingBuilder*
+MaterialLoadingHelper::MaterialLoadingBuilder::setSpeed(long val)
 {
     // todo
     this->m_speed = val;
+    return this;
 }
 
-void MaterialLoadingHelper::MaterialLoadingBuilder::setColorList(std::vector<QColor> val)
+MaterialLoadingHelper::MaterialLoadingBuilder*
+MaterialLoadingHelper::MaterialLoadingBuilder::setColorList(std::vector<QColor> val)
 {
     // todo
     this->m_color_list = std::move(val);
+    return this;
 }
